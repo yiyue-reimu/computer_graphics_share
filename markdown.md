@@ -34,7 +34,7 @@
 2006年，移交Khronos组织维护
 <!-- .element: class="fragment"-->
 
-它是一个跨平台的，用来渲染3D矢量图形的API
+它是一个跨平台的，用来渲染3D图形的API
 <!-- .element: class="fragment"-->
 
 当然，也支持向下兼容2D图形
@@ -387,16 +387,15 @@ WebGPU也支持GPGPU
 
 ---
 
-## 顶点数据
+## 描述物体
+
+*Vertex Data*
 
 怎么用数据去描述物体？
+<!-- .element: class="fragment"-->
 
 
 <div>
-<video
-    data-autoplay
-    src="./video/通过数据描述一个物体.mp4"
-></video>
 </div>
 
 
