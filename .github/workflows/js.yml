@@ -1,31 +1,21 @@
-name: tests
+name: Build and Publish Webpage
 
 on:
-  - push
-
-permissions:
-  contents: read
+  push:
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version:
-          - 18
-          - 20
-
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build webpage
+        run: npm run build
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - run: npm install
-      - run: npm run build --if-present
-      - run: npm test
-        env:
-          CI: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
